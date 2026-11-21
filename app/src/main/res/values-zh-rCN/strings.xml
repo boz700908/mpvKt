@@ -244,4 +244,23 @@
     <string name="pref_a11y_only_when_visible_summary">屏幕上没有显示的字幕不朗读。</string>
     <string name="a11y_btn_change_layout">切换布局</string>
     <string name="a11y_btn_reset_speed">恢复默认速度</string>
+    <string name="a11y_btn_close">关闭</string>
+    <string name="a11y_btn_help">帮助</string>
+    <string name="a11y_btn_settings">设置</string>
+    <string name="a11y_btn_move_up">上移</string>
+    <string name="a11y_btn_move_down">下移</string>
+    <string name="a11y_btn_primary">设为主要</string>
+    <string name="a11y_btn_copy_log">复制日志</string>
+    <string name="a11y_btn_reset">重置</string>
+    <string name="a11y_btn_add">添加</string>
+    <string name="a11y_btn_subtitle_style">字幕样式</string>
+    <string name="a11y_btn_audio_delay">音频延迟</string>
+    <string name="a11y_btn_bold">粗体</string>
+    <string name="a11y_btn_italic">斜体</string>
+    <string name="a11y_btn_alignment">对齐方式</string>
+    <string name="a11y_btn_color_target">颜色对象</string>
+    <string name="a11y_btn_deband">消除色带</string>
+    <string name="a11y_btn_background_playback">后台播放</string>
+    <string name="a11y_btn_expand">展开</string>
+    <string name="a11y_btn_collapse">收起</string>
 </resources>

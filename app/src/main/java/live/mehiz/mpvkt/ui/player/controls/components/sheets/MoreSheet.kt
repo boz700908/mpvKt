@@ -106,7 +106,7 @@ fun MoreSheet(
           ) {
             Icon(
               if (backgroundPlayback) Icons.Default.Headset else Icons.Default.HeadsetOff,
-              null,
+              stringResource(R.string.a11y_btn_background_playback),
             )
           }
           var isSleepTimerDialogShown by remember { mutableStateOf(false) }

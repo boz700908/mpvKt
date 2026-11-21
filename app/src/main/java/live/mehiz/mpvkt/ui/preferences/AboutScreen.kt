@@ -57,7 +57,7 @@ object AboutScreen : Screen {
           title = { Text(text = stringResource(id = R.string.pref_about_title)) },
           navigationIcon = {
             IconButton(onClick = backstack::removeLastOrNull) {
-              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
+              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = stringResource(R.string.a11y_btn_back))
             }
           },
         )
@@ -128,7 +128,7 @@ object AboutScreen : Screen {
               )
             },
           ) {
-            Icon(imageVector = SimpleIcons.Github, contentDescription = null)
+            Icon(imageVector = SimpleIcons.Github, contentDescription = stringResource(R.string.a11y_btn_back))
           }
         }
       }
@@ -147,7 +147,7 @@ object LibrariesScreen : Screen {
           title = { Text(text = stringResource(R.string.pref_about_oss_libraries)) },
           navigationIcon = {
             IconButton(onClick = backstack::removeLastOrNull) {
-              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
+              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = stringResource(R.string.a11y_btn_back))
             }
           },
         )

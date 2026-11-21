@@ -45,7 +45,7 @@ object PreferencesScreen : Screen {
           title = { Text(text = stringResource(R.string.pref_preferences)) },
           navigationIcon = {
             IconButton(onClick = backstack::removeLastOrNull) {
-              Icon(Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = null)
+              Icon(Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = stringResource(R.string.a11y_btn_back))
             }
           },
         )

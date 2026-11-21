@@ -1,5 +1,6 @@
 package live.mehiz.mpvkt.ui.player.controls.components.panels.components
 
+import live.mehiz.mpvkt.R
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
@@ -76,7 +77,7 @@ fun MultiCardPanel(
           },
           navigationIcon = {
             IconButton(onClick = onDismissRequest) {
-              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
+              Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = stringResource(R.string.a11y_btn_back))
             }
           },
           colors = TopAppBarDefaults.topAppBarColors().copy(containerColor = Color.Transparent),
@@ -116,7 +117,7 @@ fun MultiCardPanel(
             ),
           )
           IconButton(onDismissRequest) {
-            Icon(imageVector = Icons.Default.Close, contentDescription = null)
+            Icon(imageVector = Icons.Default.Close, contentDescription = stringResource(R.string.a11y_btn_close))
           }
         }
         repeat(cardCount) { cards(it, Modifier) }
