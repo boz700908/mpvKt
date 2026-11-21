@@ -1,5 +1,9 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.accessibility.rememberStatusAnnouncer
+
+import live.mehiz.mpvkt.accessibility.clearOverlaySemantics
+
 import android.os.Build
 import androidx.activity.compose.LocalActivity
 import androidx.compose.animation.AnimatedVisibility
@@ -296,6 +300,19 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
         }
         val holdForMultipleSpeed by playerPreferences.holdForMultipleSpeed.collectAsState()
         val currentPlayerUpdate by viewModel.playerUpdate.collectAsState()
+        // The bubble below is visual only; whatever it shows is spoken instead.
+        val statusAnnouncer = rememberStatusAnnouncer()
+        val aspectLabel = stringResource(aspectRatio.titleRes)
+        LaunchedEffect(currentPlayerUpdate, aspectLabel) {
+          statusAnnouncer.announce(
+            when (val update = currentPlayerUpdate) {
+              PlayerUpdates.None -> null
+              PlayerUpdates.MultipleSpeed -> "Temporary speed boost"
+              PlayerUpdates.AspectRatio -> "Aspect ratio $aspectLabel"
+              is PlayerUpdates.ShowText -> update.value
+            },
+          )
+        }
         val aspectRatio by playerManager.video.aspect.collectAsState()
         LaunchedEffect(currentPlayerUpdate, aspectRatio) {
           if (currentPlayerUpdate is PlayerUpdates.MultipleSpeed || currentPlayerUpdate is PlayerUpdates.None) {
@@ -308,7 +325,7 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
           currentPlayerUpdate !is PlayerUpdates.None,
           enter = fadeIn(playerControlsEnterAnimationSpec()),
           exit = fadeOut(playerControlsExitAnimationSpec()),
-          modifier = Modifier.constrainAs(playerUpdates) {
+          modifier = Modifier.clearOverlaySemantics().constrainAs(playerUpdates) {
             linkTo(parent.start, parent.end)
             linkTo(parent.top, parent.bottom, bias = 0.2f)
           },
@@ -384,7 +401,7 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
                   onClick = viewModel::pauseUnpause,
                 )
                 .padding(MaterialTheme.spacing.medium),
-              contentDescription = null,
+              contentDescription = if (paused) "Pause" else "Play",
             )
           }
         }

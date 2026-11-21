@@ -46,22 +46,26 @@ fun TopRightPlayerControls(
       ControlsButton(
         Icons.Default.Bookmarks,
         onClick = onChaptersClick,
+        title = "Chapters",
       )
     }
     ControlsButton(
       Icons.Default.Subtitles,
       onClick = onSubtitlesClick,
       onLongClick = onSubtitlesLongClick,
+      title = "Subtitles",
     )
     ControlsButton(
       Icons.Default.Audiotrack,
       onClick = onAudioClick,
       onLongClick = onAudioLongClick,
+      title = "Audio track",
     )
     ControlsButton(
       Icons.Default.MoreVert,
       onClick = onMoreClick,
       onLongClick = onMoreLongClick,
+      title = "More options",
     )
   }
 }

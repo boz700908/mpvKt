@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.accessibility.rememberGesturesSuspended
+
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -90,11 +92,22 @@ fun GestureHandler(
   val currentBrightness by viewModel.currentBrightness.collectAsState()
   val volumeBoostingCap = audioPreferences.volumeBoostCap.get()
   val haptics = LocalHapticFeedback.current
+  // A reader is running: hand the gesture surface over, the controls are the only way in.
+  val gesturesSuspended by rememberGesturesSuspended()
+
+  LaunchedEffect(gesturesSuspended) {
+    if (gesturesSuspended) viewModel.showControls()
+  }
   Box(
     modifier = modifier
       .fillMaxSize()
       .windowInsetsPadding(WindowInsets.safeGestures)
-      .pointerInput(Unit) {
+      .pointerInput(gesturesSuspended) {
+        if (gesturesSuspended) {
+          // Keep one tap — what a double-tap-to-activate turns into — to reveal the controls.
+          detectTapGestures(onTap = { viewModel.showControls() })
+          return@pointerInput
+        }
         detectTapGestures(
           onTap = {
             if (controlsShown) viewModel.hideControls() else viewModel.showControls()
@@ -153,8 +166,8 @@ fun GestureHandler(
           },
         )
       }
-      .pointerInput(areControlsLocked) {
-        if (!seekGesture || areControlsLocked) return@pointerInput
+      .pointerInput(areControlsLocked, gesturesSuspended) {
+        if (!seekGesture || areControlsLocked || gesturesSuspended) return@pointerInput
         var startingPosition = position
         var startingX = 0f
         var wasPlayerAlreadyPause = false
@@ -192,8 +205,8 @@ fun GestureHandler(
           if (showSeekbarWhenSeeking) viewModel.showSeekBar()
         }
       }
-      .pointerInput(areControlsLocked) {
-        if ((!brightnessGesture && !volumeGesture) || areControlsLocked) return@pointerInput
+      .pointerInput(areControlsLocked, gesturesSuspended) {
+        if ((!brightnessGesture && !volumeGesture) || areControlsLocked || gesturesSuspended) return@pointerInput
         var startingY = 0f
         var mpvVolumeStartingY = 0f
         var originalVolume = currentVolume

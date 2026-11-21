@@ -20,6 +20,7 @@ fun TopLeftPlayerControls(mediaTitle: String, onBackClick: () -> Unit, modifier:
   ) {
     ControlsButton(
       icon = Icons.AutoMirrored.Default.ArrowBack,
+      title = "Back",
       onClick = onBackClick,
     )
     Text(

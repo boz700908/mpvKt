@@ -36,10 +36,12 @@ fun BottomLeftPlayerControls(
     ControlsButton(
       Icons.Default.LockOpen,
       onClick = onLockControls,
+      title = "Lock controls",
     )
     ControlsButton(
       icon = Icons.Default.ScreenRotation,
       onClick = onCycleRotation,
+      title = "Rotate screen",
     )
     ControlsButton(
       text = stringResource(R.string.player_speed, playbackSpeed),
