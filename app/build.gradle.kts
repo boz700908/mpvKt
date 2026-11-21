@@ -43,8 +43,27 @@ android {
     }
   }
 
+  signingConfigs {
+    // A fixed key, so every build of this fork can be installed over the previous one. Debug
+    // builds are signed with a throwaway key that changes on every machine and CI run, which
+    // forces an uninstall before each update.
+    create("a11y") {
+      val storePath = System.getenv("MPVKT_KEYSTORE").orEmpty()
+      if (storePath.isNotBlank() && java.io.File(storePath).exists()) {
+        storeFile = java.io.File(storePath)
+        storePassword = System.getenv("MPVKT_STORE_PASSWORD")
+        keyAlias = System.getenv("MPVKT_KEY_ALIAS") ?: "mpvkt"
+        keyPassword = System.getenv("MPVKT_KEY_PASSWORD")
+      } else {
+        // No key configured: fall back to the debug key so a local build still installs.
+        initWith(getByName("debug"))
+      }
+    }
+  }
+
   buildTypes {
     named("release") {
+      signingConfig = signingConfigs.getByName("a11y")
       isMinifyEnabled = true
       isShrinkResources = false
       proguardFiles(
