@@ -1,3 +1,4 @@
+import java.io.File
 import com.android.build.api.variant.FilterConfiguration
 import dev.detekt.gradle.Detekt
 import org.apache.commons.io.output.ByteArrayOutputStream
@@ -49,8 +50,8 @@ android {
     // forces an uninstall before each update.
     create("a11y") {
       val storePath = System.getenv("MPVKT_KEYSTORE").orEmpty()
-      if (storePath.isNotBlank() && java.io.File(storePath).exists()) {
-        storeFile = java.io.File(storePath)
+      if (storePath.isNotBlank() && File(storePath).exists()) {
+        storeFile = File(storePath)
         storePassword = System.getenv("MPVKT_STORE_PASSWORD")
         keyAlias = System.getenv("MPVKT_KEY_ALIAS") ?: "mpvkt"
         keyPassword = System.getenv("MPVKT_KEY_PASSWORD")
