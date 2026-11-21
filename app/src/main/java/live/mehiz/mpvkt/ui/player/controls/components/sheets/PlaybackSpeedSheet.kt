@@ -119,7 +119,7 @@ fun PlaybackSpeedSheet(
           Text(text = stringResource(id = R.string.player_sheets_speed_make_default))
         }
         FilledIconButton(onClick = onResetDefault) {
-          Icon(imageVector = Icons.Default.RestartAlt, contentDescription = null)
+          Icon(imageVector = Icons.Default.RestartAlt, contentDescription = "Reset to default speed")
         }
       }
     }

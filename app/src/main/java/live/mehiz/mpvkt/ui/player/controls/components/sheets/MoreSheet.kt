@@ -271,7 +271,7 @@ fun TimePickerDialog(
           IconButton(onClick = { currentLayoutType = if (currentLayoutType == 0) 1 else 0 }) {
             Icon(
               imageVector = if (currentLayoutType == 0) Icons.Outlined.Schedule else Icons.Default.KeyboardAlt,
-              contentDescription = null,
+              contentDescription = "Change layout",
             )
           }
           Row {

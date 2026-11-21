@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls.components
 
+import live.mehiz.mpvkt.accessibility.seekbarAccessibility
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -65,7 +67,15 @@ fun SeekbarWithTimers(
       segments = chapters
         .filter { it.start in 0f..duration }
         .let { (if (it.isNotEmpty() && it[0].start != 0f) persistentListOf(Segment("", 0f)) + it else it) + it },
-      modifier = Modifier.weight(1f),
+      modifier =
+        Modifier
+          .weight(1f)
+          .seekbarAccessibility(
+            position = position,
+            duration = duration,
+            onSeek = onValueChange,
+            onSeekFinished = onValueChangeFinished,
+          ),
       colors = SeekerDefaults.seekerColors(
         progressColor = MaterialTheme.colorScheme.primary,
         thumbColor = MaterialTheme.colorScheme.primary,
