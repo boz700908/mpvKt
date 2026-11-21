@@ -26,6 +26,10 @@ fun Modifier.seekbarAccessibility(
   duration: Float,
   onSeek: (Float) -> Unit,
   onSeekFinished: () -> Unit,
+  contentLabel: String,
+  forwardLabel: String,
+  backLabel: String,
+  startLabel: String,
   stepSeconds: Int = 10,
 ): Modifier {
   if (duration <= 0f) return this
@@ -39,7 +43,7 @@ fun Modifier.seekbarAccessibility(
   }
 
   return this.semantics {
-    contentDescription = "Playback position"
+    contentDescription = contentLabel
     progressBarRangeInfo =
       ProgressBarRangeInfo(
         current = progress.toFloat(),
@@ -52,15 +56,15 @@ fun Modifier.seekbarAccessibility(
     }
     customActions =
       listOf(
-        CustomAccessibilityAction("Forward $stepSeconds seconds") {
+        CustomAccessibilityAction(forwardLabel) {
           seekTo(clamped + stepSeconds)
           true
         },
-        CustomAccessibilityAction("Back $stepSeconds seconds") {
+        CustomAccessibilityAction(backLabel) {
           seekTo(clamped - stepSeconds)
           true
         },
-        CustomAccessibilityAction("Jump to start") {
+        CustomAccessibilityAction(startLabel) {
           seekTo(0f)
           true
         },

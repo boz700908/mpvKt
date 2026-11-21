@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls.components
 
+import live.mehiz.mpvkt.R
+import androidx.compose.ui.res.stringResource
 import live.mehiz.mpvkt.accessibility.seekbarAccessibility
 
 import androidx.compose.foundation.clickable
@@ -75,6 +77,10 @@ fun SeekbarWithTimers(
             duration = duration,
             onSeek = onValueChange,
             onSeekFinished = onValueChangeFinished,
+            contentLabel = stringResource(R.string.a11y_seekbar),
+            forwardLabel = stringResource(R.string.a11y_seek_forward, 10),
+            backLabel = stringResource(R.string.a11y_seek_back, 10),
+            startLabel = stringResource(R.string.a11y_seek_start),
           ),
       colors = SeekerDefaults.seekerColors(
         progressColor = MaterialTheme.colorScheme.primary,

@@ -1,5 +1,9 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.R
+
+import androidx.compose.ui.res.stringResource
+
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -56,14 +60,14 @@ fun BottomRightPlayerControls(
       ControlsButton(
         Icons.Default.PictureInPictureAlt,
         onClick = onPipClick,
-        title = "Picture in picture",
+        title = stringResource(R.string.a11y_btn_pip),
       )
     }
 
     ControlsButton(
       Icons.Default.AspectRatio,
       onClick = onAspectClick,
-      title = "Aspect ratio",
+      title = stringResource(R.string.a11y_btn_aspect),
     )
   }
 }

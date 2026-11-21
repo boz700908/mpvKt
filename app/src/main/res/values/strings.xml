@@ -304,4 +304,23 @@
     <string name="pref_a11y_interrupt_summary">Interrupt the previous line instead of queueing behind it, so speech stays in sync with the picture.</string>
     <string name="pref_a11y_only_when_visible_title">Stay quiet while subtitles are hidden</string>
     <string name="pref_a11y_only_when_visible_summary">Do not read lines that are not displayed on screen.</string>
+    <string name="a11y_btn_play">Play</string>
+    <string name="a11y_btn_pause">Pause</string>
+    <string name="a11y_btn_back">Back</string>
+    <string name="a11y_btn_chapters">Chapters</string>
+    <string name="a11y_btn_subtitles">Subtitles</string>
+    <string name="a11y_btn_audio_track">Audio track</string>
+    <string name="a11y_btn_more">More options</string>
+    <string name="a11y_btn_lock">Lock controls</string>
+    <string name="a11y_btn_rotate">Rotate screen</string>
+    <string name="a11y_btn_pip">Picture in picture</string>
+    <string name="a11y_btn_aspect">Aspect ratio</string>
+    <string name="a11y_seekbar">Playback position</string>
+    <string name="a11y_seek_forward">Forward %1$d seconds</string>
+    <string name="a11y_seek_back">Back %1$d seconds</string>
+    <string name="a11y_seek_start">Jump to start</string>
+    <string name="a11y_status_speed_boost">Temporary speed boost</string>
+    <string name="a11y_status_aspect">Aspect ratio %1$s</string>
+    <string name="a11y_btn_change_layout">Change layout</string>
+    <string name="a11y_btn_reset_speed">Reset to default speed</string>
 </resources>

@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.accessibility.rememberGesturesSuspended
+
 import live.mehiz.mpvkt.accessibility.rememberStatusAnnouncer
 
 import live.mehiz.mpvkt.accessibility.clearOverlaySemantics
@@ -151,13 +153,18 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
   }
   val customButton by viewModel.primaryButton.collectAsState()
 
+  val gesturesSuspended by rememberGesturesSuspended()
+
   LaunchedEffect(
     controlsShown,
     paused,
     seekbarDragPosition,
     resetControls,
+    gesturesSuspended,
   ) {
-    if (controlsShown && !paused && seekbarDragPosition == null) {
+    // Never fade the controls away from under a screen reader: they are the only way to operate
+    // the player once the gesture surface is handed over.
+    if (controlsShown && !paused && seekbarDragPosition == null && !gesturesSuspended) {
       delay(playerTimeToDisappear.toLong().milliseconds)
       viewModel.hideControls()
     }
@@ -308,8 +315,8 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
           statusAnnouncer.announce(
             when (val update = currentPlayerUpdate) {
               PlayerUpdates.None -> null
-              PlayerUpdates.MultipleSpeed -> "Temporary speed boost"
-              PlayerUpdates.AspectRatio -> "Aspect ratio $aspectLabel"
+              PlayerUpdates.MultipleSpeed -> stringResource(R.string.a11y_status_speed_boost)
+              PlayerUpdates.AspectRatio -> stringResource(R.string.a11y_status_aspect, aspectLabel)
               is PlayerUpdates.ShowText -> update.value
             },
           )
@@ -401,7 +408,8 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
                   onClick = viewModel::pauseUnpause,
                 )
                 .padding(MaterialTheme.spacing.medium),
-              contentDescription = if (paused) "Pause" else "Play",
+              contentDescription =
+                stringResource(if (paused) R.string.a11y_btn_play else R.string.a11y_btn_pause),
             )
           }
         }

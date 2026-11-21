@@ -1,5 +1,9 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.R
+
+import androidx.compose.ui.res.stringResource
+
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -20,7 +24,7 @@ fun TopLeftPlayerControls(mediaTitle: String, onBackClick: () -> Unit, modifier:
   ) {
     ControlsButton(
       icon = Icons.AutoMirrored.Default.ArrowBack,
-      title = "Back",
+      title = stringResource(R.string.a11y_btn_back),
       onClick = onBackClick,
     )
     Text(

@@ -1,5 +1,9 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import live.mehiz.mpvkt.R
+
+import androidx.compose.ui.res.stringResource
+
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Audiotrack
@@ -46,26 +50,26 @@ fun TopRightPlayerControls(
       ControlsButton(
         Icons.Default.Bookmarks,
         onClick = onChaptersClick,
-        title = "Chapters",
+        title = stringResource(R.string.a11y_btn_chapters),
       )
     }
     ControlsButton(
       Icons.Default.Subtitles,
       onClick = onSubtitlesClick,
       onLongClick = onSubtitlesLongClick,
-      title = "Subtitles",
+      title = stringResource(R.string.a11y_btn_subtitles),
     )
     ControlsButton(
       Icons.Default.Audiotrack,
       onClick = onAudioClick,
       onLongClick = onAudioLongClick,
-      title = "Audio track",
+      title = stringResource(R.string.a11y_btn_audio_track),
     )
     ControlsButton(
       Icons.Default.MoreVert,
       onClick = onMoreClick,
       onLongClick = onMoreLongClick,
-      title = "More options",
+      title = stringResource(R.string.a11y_btn_more),
     )
   }
 }

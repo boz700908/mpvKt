@@ -215,4 +215,33 @@
     <string name="show_icon_on_double_tap_to_seek">显示跳转时间</string>
     <string name="show_time_on_double_tap_to_seek">显示跳转图标</string>
 
+    <string name="a11y_btn_play">播放</string>
+    <string name="a11y_btn_pause">暂停</string>
+    <string name="a11y_btn_back">返回</string>
+    <string name="a11y_btn_chapters">章节</string>
+    <string name="a11y_btn_subtitles">字幕</string>
+    <string name="a11y_btn_audio_track">音轨</string>
+    <string name="a11y_btn_more">更多选项</string>
+    <string name="a11y_btn_lock">锁定控制栏</string>
+    <string name="a11y_btn_rotate">旋转屏幕</string>
+    <string name="a11y_btn_pip">画中画</string>
+    <string name="a11y_btn_aspect">画面比例</string>
+    <string name="a11y_seekbar">播放进度</string>
+    <string name="a11y_seek_forward">快进 %1$d 秒</string>
+    <string name="a11y_seek_back">后退 %1$d 秒</string>
+    <string name="a11y_seek_start">跳到开头</string>
+    <string name="a11y_status_speed_boost">临时加速</string>
+    <string name="a11y_status_aspect">画面比例 %1$s</string>
+    <string name="pref_accessibility">无障碍</string>
+    <string name="pref_accessibility_summary">屏幕阅读器、朗读字幕</string>
+    <string name="pref_a11y_announce_subtitles_title">朗读字幕</string>
+    <string name="pref_a11y_announce_subtitles_summary">把每一句字幕通过无障碍事件朗读出来。支持内嵌字幕、外挂 srt/vtt 文件，以及纯音频播放。</string>
+    <string name="pref_a11y_announce_secondary_title">朗读第二字幕</string>
+    <string name="pref_a11y_announce_secondary_summary">双语字幕时，第二条字幕也一并朗读。</string>
+    <string name="pref_a11y_interrupt_title">新字幕直接打断上一条</string>
+    <string name="pref_a11y_interrupt_summary">新一句出现时立刻替换正在朗读的句子，而不是排队等待，保证跟得上画面。</string>
+    <string name="pref_a11y_only_when_visible_title">字幕隐藏时保持安静</string>
+    <string name="pref_a11y_only_when_visible_summary">屏幕上没有显示的字幕不朗读。</string>
+    <string name="a11y_btn_change_layout">切换布局</string>
+    <string name="a11y_btn_reset_speed">恢复默认速度</string>
 </resources>
