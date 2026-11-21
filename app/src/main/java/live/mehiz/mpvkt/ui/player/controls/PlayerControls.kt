@@ -300,6 +300,7 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
         }
         val holdForMultipleSpeed by playerPreferences.holdForMultipleSpeed.collectAsState()
         val currentPlayerUpdate by viewModel.playerUpdate.collectAsState()
+        val aspectRatio by playerManager.video.aspect.collectAsState()
         // The bubble below is visual only; whatever it shows is spoken instead.
         val statusAnnouncer = rememberStatusAnnouncer()
         val aspectLabel = stringResource(aspectRatio.titleRes)
@@ -313,7 +314,6 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
             },
           )
         }
-        val aspectRatio by playerManager.video.aspect.collectAsState()
         LaunchedEffect(currentPlayerUpdate, aspectRatio) {
           if (currentPlayerUpdate is PlayerUpdates.MultipleSpeed || currentPlayerUpdate is PlayerUpdates.None) {
             return@LaunchedEffect
