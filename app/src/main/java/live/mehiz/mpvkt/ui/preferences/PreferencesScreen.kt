@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.preferences
 
+import androidx.compose.material.icons.outlined.Accessibility
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -82,6 +84,13 @@ object PreferencesScreen : Screen {
             summary = { Text(text = stringResource(id = R.string.pref_decoder_summary)) },
             icon = { Icon(Icons.Outlined.Memory, null) },
             onClick = { backstack.add(DecoderPreferencesScreen) },
+          )
+          preference(
+            key = "accessibility",
+            title = { Text(text = stringResource(id = R.string.pref_accessibility)) },
+            summary = { Text(text = stringResource(id = R.string.pref_accessibility_summary)) },
+            icon = { Icon(Icons.Outlined.Accessibility, null) },
+            onClick = { backstack.add(AccessibilityPreferencesScreen) },
           )
           preference(
             key = "subtitles",
