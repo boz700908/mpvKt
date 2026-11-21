@@ -61,12 +61,12 @@ fun CustomButtonsScreen(
         },
         navigationIcon = {
           IconButton(onClick = { onNavigateBack() }) {
-            Icon(Icons.AutoMirrored.Default.ArrowBack, null)
+            Icon(Icons.AutoMirrored.Default.ArrowBack, stringResource(R.string.a11y_btn_back))
           }
         },
         actions = {
           IconButton(onClick = { onClickFaq() }) {
-            Icon(Icons.AutoMirrored.Outlined.HelpOutline, null)
+            Icon(Icons.AutoMirrored.Outlined.HelpOutline, stringResource(R.string.a11y_btn_help))
           }
         },
       )

@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.presentation.components
 
+import live.mehiz.mpvkt.R
+import androidx.compose.ui.res.stringResource
 import android.annotation.SuppressLint
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
@@ -64,7 +66,13 @@ fun ExpandableCard(
         modifier = Modifier.rotate(rotationState),
         onClick = { onExpand(!isExpanded) },
       ) {
-        Icon(Icons.Default.ArrowDropDown, null)
+        Icon(
+          Icons.Default.ArrowDropDown,
+          contentDescription =
+            stringResource(
+              if (isExpanded) R.string.a11y_btn_collapse else R.string.a11y_btn_expand,
+            ),
+        )
       }
     }
     Box(Modifier.animateContentSize()) {
