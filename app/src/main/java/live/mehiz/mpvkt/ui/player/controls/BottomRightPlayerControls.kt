@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls
 
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Surface
 import android.annotation.SuppressLint
@@ -45,7 +47,8 @@ fun BottomRightPlayerControls(
             .combinedClickable(
               onClick = onCustomButtonClick,
               onLongClick = onCustomButtonLongClick,
-            ),
+            )
+            .semantics { contentDescription = customButtonTitle },
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.secondaryContainer,
         contentColor = MaterialTheme.colorScheme.onSecondaryContainer,

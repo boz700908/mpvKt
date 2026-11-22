@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.ui.player.controls.components.sheets
 
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import android.text.format.DateUtils
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -179,10 +181,12 @@ fun MoreSheet(
             // One node, for the same reason as the control bar button.
             Surface(
               modifier =
-                Modifier.combinedClickable(
-                  onClick = { onCustomButtonClick(button) },
-                  onLongClick = { onCustomButtonLongClick(button) },
-                ),
+                Modifier
+                  .combinedClickable(
+                    onClick = { onCustomButtonClick(button) },
+                    onLongClick = { onCustomButtonLongClick(button) },
+                  )
+                  .semantics { contentDescription = button.title },
               shape = MaterialTheme.shapes.small,
               color = MaterialTheme.colorScheme.surfaceVariant,
               contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
