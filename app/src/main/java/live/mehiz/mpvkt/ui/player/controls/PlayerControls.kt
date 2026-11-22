@@ -311,12 +311,16 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
         // The bubble below is visual only; whatever it shows is spoken instead.
         val statusAnnouncer = rememberStatusAnnouncer()
         val aspectLabel = stringResource(aspectRatio.titleRes)
-        LaunchedEffect(currentPlayerUpdate, aspectLabel) {
+        // Resolved here: reading a resource inside the effect would be a composable call from a
+        // coroutine.
+        val speedBoostText = stringResource(R.string.a11y_status_speed_boost)
+        val aspectText = stringResource(R.string.a11y_status_aspect, aspectLabel)
+        LaunchedEffect(currentPlayerUpdate, speedBoostText, aspectText) {
           statusAnnouncer.announce(
             when (val update = currentPlayerUpdate) {
               PlayerUpdates.None -> null
-              PlayerUpdates.MultipleSpeed -> stringResource(R.string.a11y_status_speed_boost)
-              PlayerUpdates.AspectRatio -> stringResource(R.string.a11y_status_aspect, aspectLabel)
+              PlayerUpdates.MultipleSpeed -> speedBoostText
+              PlayerUpdates.AspectRatio -> aspectText
               is PlayerUpdates.ShowText -> update.value
             },
           )
