@@ -44,7 +44,10 @@ object AccessibilityPreferencesScreen : Screen {
           title = { Text(stringResource(R.string.pref_accessibility)) },
           navigationIcon = {
             IconButton(onClick = backstack::removeLastOrNull) {
-              Icon(Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = "Back")
+              Icon(
+                Icons.AutoMirrored.Outlined.ArrowBack,
+                contentDescription = stringResource(R.string.a11y_btn_back),
+              )
             }
           },
         )

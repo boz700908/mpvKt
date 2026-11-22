@@ -342,4 +342,5 @@
     <string name="a11y_btn_background_playback">Background playback</string>
     <string name="a11y_btn_expand">Expand</string>
     <string name="a11y_btn_collapse">Collapse</string>
+    <string name="a11y_btn_github">GitHub repository</string>
 </resources>

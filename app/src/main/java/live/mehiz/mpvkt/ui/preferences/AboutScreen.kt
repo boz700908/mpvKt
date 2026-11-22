@@ -128,7 +128,7 @@ object AboutScreen : Screen {
               )
             },
           ) {
-            Icon(imageVector = SimpleIcons.Github, contentDescription = stringResource(R.string.a11y_btn_back))
+            Icon(imageVector = SimpleIcons.Github, contentDescription = stringResource(R.string.a11y_btn_github))
           }
         }
       }
