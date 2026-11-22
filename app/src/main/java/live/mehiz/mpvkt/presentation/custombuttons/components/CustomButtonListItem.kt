@@ -1,5 +1,7 @@
 package live.mehiz.mpvkt.presentation.custombuttons.components
 
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -48,6 +50,7 @@ fun CustomButtonListItem(
       modifier = Modifier
         .fillMaxWidth()
         .clickable { onRename() }
+        .semantics { contentDescription = customButton.title }
         .padding(
           start = MaterialTheme.spacing.medium,
           top = MaterialTheme.spacing.medium,
