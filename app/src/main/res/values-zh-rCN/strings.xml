@@ -264,4 +264,6 @@
     <string name="a11y_btn_expand">展开</string>
     <string name="a11y_btn_collapse">收起</string>
     <string name="a11y_btn_github">GitHub 仓库</string>
+    <string name="a11y_btn_decrease">减少</string>
+    <string name="a11y_btn_increase">增加</string>
 </resources>

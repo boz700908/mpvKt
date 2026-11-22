@@ -343,4 +343,6 @@
     <string name="a11y_btn_expand">Expand</string>
     <string name="a11y_btn_collapse">Collapse</string>
     <string name="a11y_btn_github">GitHub repository</string>
+    <string name="a11y_btn_decrease">Decrease</string>
+    <string name="a11y_btn_increase">Increase</string>
 </resources>
