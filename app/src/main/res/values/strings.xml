@@ -345,4 +345,5 @@
     <string name="a11y_btn_github">GitHub repository</string>
     <string name="a11y_btn_decrease">Decrease</string>
     <string name="a11y_btn_increase">Increase</string>
+    <string name="a11y_btn_unlock">Unlock controls</string>
 </resources>

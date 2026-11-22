@@ -361,6 +361,7 @@ fun PlayerControls(viewModel: PlayerViewModel, onBackPress: () -> Unit, modifier
           ControlsButton(
             Icons.Filled.Lock,
             onClick = { viewModel.unlockControls() },
+            title = stringResource(R.string.a11y_btn_unlock),
           )
         }
         AnimatedVisibility(
